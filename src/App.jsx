@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 
 import useStyles from './styles.js';
+import { useDispatch } from 'react-redux';
+import { getPosts } from './redux/actions/posts';
 
 export default function App() {
+
     const {appBar} = useStyles();
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getPosts())
+    },[dispatch])
+
     return (
         <Container maxWidth="lg">
             <AppBar position='static' color='inherit' className={appBar}>
