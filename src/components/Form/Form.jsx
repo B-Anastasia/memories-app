@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import useStyles from './styles.js';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase64 from 'react-file-base64';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../redux/actions/posts.js';
 
 const initialValuesForm = {
     creator: '',
@@ -12,13 +14,21 @@ const initialValuesForm = {
 
 function Form() {
 
+    const dispatch = useDispatch();
+
     const { buttonSubmit, fileInput, form, paper, root } = useStyles();
 
     const [postData, setPostData] = useState(initialValuesForm)
 
-    const handleSubmit = () => { };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(createPost(postData));
+    };
 
-    const clear = () => {setPostData(initialValuesForm)};
+    const clear = () => { setPostData(initialValuesForm) };
+    
+    // TODO: validate form fields
+    // TODO: use formik
 
     return (
         <Paper className={paper}>
@@ -65,7 +75,7 @@ function Form() {
                     <FileBase64
                         type="file"
                         multiple={false}
-                        onDone={(file) => setPostData({ ...postData, selectedFile: file })}
+                        onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
                     />
                 </div>
                 <Button
