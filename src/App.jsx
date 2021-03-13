@@ -13,9 +13,11 @@ export default function App() {
     const { appBar, image } = useStyles();
     const dispatch = useDispatch();
 
+    
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch])
+
 
     return (
         <>
