@@ -12,12 +12,15 @@ export default function App() {
 
     const { appBar, image } = useStyles();
     const dispatch = useDispatch();
+
     
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch])
 
+
     return (
+        
         <>
             <div className={image}>
                 <Typography variant='h2' className={appBar} align='center'>Memories</Typography>
