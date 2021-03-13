@@ -5,6 +5,9 @@ export default makeStyles((theme) => ({
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
     },
+    '& .MuiButton-containedPrimary:hover': {
+      backgroundColor: '#f34d4a',
+    }
   },
   paper: {
     padding: theme.spacing(2),
@@ -20,5 +23,6 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+    color: 'white',
   },
 }));
