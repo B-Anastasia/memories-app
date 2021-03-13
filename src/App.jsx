@@ -14,12 +14,13 @@ export default function App() {
     const dispatch = useDispatch();
 
     
+    
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch])
 
 
-    
+
     return (
         
         <>
