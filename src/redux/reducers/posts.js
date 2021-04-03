@@ -1,11 +1,21 @@
-const postsReducer =  (posts=[], action) => {
+const initialState = {
+    posts: [],
+    pending: false,
+}
+
+const postsReducer =  (state = initialState, action) => {
     switch (action.type) {
+        case 'PENDING':
+            return {...state, pending: action.payload};
         case 'FETCH_ALL':
-            return action.payload;
+            return {...state, posts: action.payload};
         case 'CREATE_POST':
-            return [action.payload, ...posts];
+            return {...state, posts: [action.payload, ...state.posts]};
+        case 'UPDATE_POST':
+            const updatedPosts = state.posts.map(post=> post._id===action.payload._id ? action.payload : post);
+            return {...state, posts: updatedPosts};
         default:
-            return posts;
+            return state;
     }
 }
 
