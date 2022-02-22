@@ -9,7 +9,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 function Post({ post, setCurrentId }) {
 
     const { card, media, overlay, overlay2, button, details, title, cardActions } = useStyles();
-
+    console.log('😸 ~ post', post);
     return (
         <Card className={card}>
 

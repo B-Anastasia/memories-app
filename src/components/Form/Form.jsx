@@ -50,6 +50,7 @@ function Form({currentId, setCurrentId}) {
 
     // TODO: validate form fields
     // TODO: use formik
+    // TODO: use typescript first
 
     return (
         <Paper className={paper}>
