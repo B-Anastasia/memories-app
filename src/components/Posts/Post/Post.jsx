@@ -6,10 +6,10 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function Post({ post }) {
+function Post({ post, setCurrentId }) {
 
     const { card, media, overlay, overlay2, button, details, title, cardActions } = useStyles();
-
+    console.log('😸 ~ post', post);
     return (
         <Card className={card}>
 
@@ -20,7 +20,7 @@ function Post({ post }) {
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
             <div className={overlay2}>
-                <Button className={button} size="small" onClick={() => { }}>
+                <Button className={button} size="small" onClick={() => setCurrentId(post._id)}>
                     <MoreHorizIcon fontSize="default" />
                 </Button>
             </div>
